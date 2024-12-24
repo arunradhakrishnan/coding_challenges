@@ -30,6 +30,7 @@ void *consumer(void *args)
     int icnt = 0 ;
     while(1)
     {
+          printf("consumer-->\n");
         pthread_mutex_lock(&mutex);
         while (ProcessRow <= 0)
             pthread_cond_wait(&condA, &mutex);

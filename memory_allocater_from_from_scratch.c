@@ -11,25 +11,30 @@ static uint8_t block_map[MEMORY_POOL_SIZE / BLOCK_SIZE]; // 0 = free, 1 = alloca
 
 // Initialize the memory pool
 void memory_init() {
-    for (size_t i = 0; i < sizeof(block_map); ++i) {
+    for (size_t i = 0; i < sizeof(block_map); ++i) 
+    {
         block_map[i] = 0; // All blocks are free
     }
 }
 
 // Find the first free block of the required size
 void *memory_alloc(size_t size) {
-    if (size == 0 || size > MEMORY_POOL_SIZE) {
+    if (size == 0 || size > MEMORY_POOL_SIZE)
+    {
         return NULL;
     }
     size_t num_blocks = (size + BLOCK_SIZE - 1) / BLOCK_SIZE;
     size_t free_blocks = 0;
 
-    for (size_t i = 0; i < sizeof(block_map); ++i) {
+    for (size_t i = 0; i < sizeof(block_map); i++)
+    {
         if (block_map[i] == 0) {
-            ++free_blocks;
-            if (free_blocks == num_blocks) {
+            ++free_blocks;// count number of free blocks that are available
+            if (free_blocks == num_blocks) 
+            {
                 // Found a sufficient number of free blocks
-                for (size_t j = i - free_blocks + 1; j <= i; ++j) {
+                for (size_t j = i - free_blocks + 1; j <= i; j++)
+                {
                     block_map[j] = 1; // Mark blocks as allocated
                 }
                 return &memory_pool[(i - free_blocks + 1) * BLOCK_SIZE];
@@ -43,13 +48,15 @@ void *memory_alloc(size_t size) {
 
 // Free allocated memory
 void memory_free(void *ptr) {
-    if (ptr == NULL) {
+    if (ptr == NULL) 
+    {
         return;
     }
     size_t offset = (uint8_t *)ptr - memory_pool;
     size_t block_index = offset / BLOCK_SIZE;
 
-    while (block_index < sizeof(block_map) && block_map[block_index] == 1) {
+    while (block_index < sizeof(block_map) && block_map[block_index] == 1) 
+    {
         block_map[block_index] = 0; // Mark block as free
         ++block_index;
     }

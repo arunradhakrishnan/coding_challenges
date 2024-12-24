@@ -11,9 +11,9 @@ int main()
 		cout<<" "<<*i;
 	}
 	
-	vec.insert(vec.begin(),10);//Inserting 10 to the vector
-    vec.insert(vec.begin(),20);//Inserting 10 to the vector
-    vec.insert(vec.begin(),30);//Inserting 10 to the vector
+	vec.insert(vec.begin(), 10);//Inserting 10 to the vector
+    vec.insert(vec.begin(), 20);//Inserting 10 to the vector
+    vec.insert(vec.begin(), 30);//Inserting 10 to the vector
     
     vec.pop_back();
     	cout<< "" <<vec.back()<<"\n";

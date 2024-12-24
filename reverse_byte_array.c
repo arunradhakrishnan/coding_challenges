@@ -11,7 +11,7 @@ temp = *val1;
 *val2 = temp;
 }
 
-void reverse_byte_array(uint8_t input_buffer[],int length  )
+void reverse_byte_array(uint8_t input_buffer[], int length  )
 {
     int i = 0;
     int j = length - 1;
@@ -30,14 +30,14 @@ uint32_t little_endian_2_big_endian(uint32_t input)
 {
     uint32_t output = 0;
 
-uint8_t nibble1 = input    & 0xff;
-uint8_t nibble2 = input>>8 & 0xff ;  
-uint8_t nibble3 = input>>16 & 0xff ;  
-uint8_t nibble4 = input>>24 & 0xff ;  
+    uint8_t byte1 = input    & 0xff;
+    uint8_t byte2 = input>>8 & 0xff ;  
+    uint8_t byte3 = input>>16 & 0xff ;  
+    uint8_t byte4 = input>>24 & 0xff ;  
 
-output =  nibble1<<24|nibble2<<16|nibble3<<8|nibble4;
+    output =  byte1<<24|byte2<<16|byte3<<8|byte4;
 
-return output;
+    return output;
 }
 
 
@@ -54,8 +54,8 @@ main()
 
 
 
-uint32_t retval = little_endian_2_big_endian(0xFFEEDDCC);
-     printf("0x%x\n",retval);
+    uint32_t retval = little_endian_2_big_endian(0xFFEEDDCC);
+        printf("0x%x\n",retval);
 
 
 }

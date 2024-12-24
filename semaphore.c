@@ -4,15 +4,16 @@
 #include <sys/wait.h> // for wait()
 #include <fcntl.h>    // for O_CREAT, O_EXCL
 
+using namespace std
 // Function that simulates work done by each process
 void worker(sem_t *semaphore, int process_id) {
-    std::cout << "Process " << process_id << " is waiting to acquire the semaphore...\n";
+    cout << "Process " << process_id << " is waiting to acquire the semaphore...\n";
     sem_wait(semaphore);  // Acquire the semaphore (decrements the value)
-    std::cout << "Process " << process_id << " has acquired the semaphore.\n";
+    cout << "Process " << process_id << " has acquired the semaphore.\n";
     
     sleep(2);  // Simulate work
     
-    std::cout << "Process " << process_id << " is releasing the semaphore.\n";
+    cout << "Process " << process_id << " is releasing the semaphore.\n";
     sem_post(semaphore);  // Release the semaphore (increments the value)
 }
 
@@ -21,7 +22,7 @@ int main() {
     sem_t *semaphore = sem_open("/my_semaphore", O_CREAT, 0644, 5);
 
     if (semaphore == SEM_FAILED) {
-        std::cerr << "Failed to create semaphore.\n";
+        cerr << "Failed to create semaphore.\n";
         return 1;
     }
     const int NUM_PROCESSES = 5;

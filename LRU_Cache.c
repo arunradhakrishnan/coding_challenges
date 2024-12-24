@@ -51,10 +51,14 @@ void moveToHead(LRUCache* cache, Node* node) {
     // Move the node to the head
     node->prev = NULL;
     node->next = cache->head;
-    if (cache->head) cache->head->prev = node;
+    if (cache->head) 
+    {
+        cache->head->prev = node;
+    }
     cache->head = node;
 
-    if (!cache->tail) cache->tail = node;  // Handle empty list case
+    if (!cache->tail) 
+        cache->tail = node;  // Handle empty list case
 }
 
 // Remove the least recently used node (tail)
@@ -98,10 +102,12 @@ void lruCachePut(LRUCache* cache, int key, int value) {
         // Create a new node and add it to the head
         Node* newNode = createNode(key, value);
         newNode->next = cache->head;
-        if (cache->head) cache->head->prev = newNode;
+        if (cache->head)
+            cache->head->prev = newNode;
         cache->head = newNode;
 
-        if (!cache->tail) cache->tail = newNode;  // First node in the cache
+        if (!cache->tail)
+            cache->tail = newNode;  // First node in the cache
 
         cache->hashTable[key % HASH_SIZE] = newNode;  // Store in hash table
         cache->size++;

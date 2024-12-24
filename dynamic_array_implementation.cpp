@@ -1,4 +1,6 @@
 #include <iostream>
+
+using namespace std
 DynamicArray::DynamicArray() : data(nullptr), currentSize(0), capacity(0) {}
 
 DynamicArray::~DynamicArray() {
@@ -56,9 +58,9 @@ int main() {
     arr.append(3);
 
     for (size_t i = 0; i < arr.size(); i++) {
-        std::cout << arr.at(i) << " ";
+        cout << arr.at(i) << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     return 0;
 }

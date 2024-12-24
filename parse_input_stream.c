@@ -5,6 +5,7 @@
 #define ERR_VAL -1
 
 char header[] = "header";
+#define HEADER_SIZE 6
 int header_pointer = 0; 
 int header_read_done_flag = 0 ;
 
@@ -55,12 +56,13 @@ int parse_stream(char input)
     }
     else
     {
-        header_pointer == 0;
-        
+        header_pointer = 0;
+
     }
-    if((header_pointer == (6)) && (header_read_done_flag == 0))
+    if((header_pointer == HEADER_SIZE) && (header_read_done_flag == 0))
     {
         //printf("header read_done**");
+         header_pointer = 0;
         header_read_done_flag = 1;
         return 0;
     }

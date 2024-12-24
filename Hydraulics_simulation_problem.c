@@ -42,31 +42,7 @@ int B = 10;
 int Q1;
 int Q2;
 
-// 5. The program shall calculate the mass flow rate for each orifice based on Equation 1.
-// Equation 1
-// Q = G × (Pa − Pb)
 
-
-// 6. The program shall calculate the rate of change in pressure of each volume element based on Equation 2.
-// Equation 2
-// ΔP/Δt = β/V * ∑ Qi
-
-// 7. The program shall calculate the pressure of each volume element based on Equation 3.
-// Equation 3
-// Pt + Δt = Pt + Δt *(ΔP/Δt)
-
-// 8. The program shall calculate the pressure of each volume element at discrete points in time starting at time t = 0
-// and ending at time t = 10 separated by the time interval Δt = 0.01.
-
-
-// 9. The program shall output the time and pressure values P1 and P2 in order from smallest to largest time to the C
-// standard output (stdout) using the following printf format:
-// "%6.2f: accumulator %.5f cylinder %.5f\n", time, P1, P2
-
-// Event Name Time Action
-// fill_on 1.0 Set G1 to 1
-// fill_off 4.0 Set G1 to 0
-// drain_on 8.0 Set G2 to 1
 
     float end_time = 10.00; 
     float time = 0.00; 
@@ -84,6 +60,11 @@ int Q2;
     float Pcurr_P3 = 0;
     float Pnext_P3 = 0;
 
+//***************//USE <<<<<<fabs>>>>>> for float comparison!!!!!
+//***************//USE <<<<<<fabs>>>>>> for float comparison!!!!!
+//***************//USE <<<<<<fabs>>>>>> for float comparison!!!!!
+//***************//USE <<<<<<fabs>>>>>> for float comparison!!!!!
+//***************//USE <<<<<<fabs>>>>>> for float comparison!!!!!
 
     while(time < 10 )
     {
@@ -135,3 +116,7 @@ int Q2;
     }
 
 }
+
+
+
+

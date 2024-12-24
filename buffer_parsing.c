@@ -12,7 +12,7 @@ uint32_t   output_data[100]  =  {0};
 int  j = 0;
 
 int count = 0;
-    for(int i =0; i < input_size; i++)
+    for(int i = 0; i < input_size; i++)
     {
 
          printf("  %d = 0x%x \n",i,input_data[i]);
@@ -31,9 +31,7 @@ int count = 0;
          {
              j++;
          }
-         
-
-    }
+     }
 
     for(int i = 0; i <= j; i++)
         printf(" 0x%x  ",output_data[i]);

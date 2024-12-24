@@ -4,6 +4,13 @@
 using namespace std;
 
 // Function to insert a new element into the min-heap
+void insert_min_heap(vector<int>& heap, int value);
+// Function to delete a node from the min-heap
+void delete_min_heap(vector<int>& heap, int value);
+
+
+
+// Function to insert a new element into the min-heap
 void insert_min_heap(vector<int>& heap, int value)
 {
     // Add the new element to the end of the heap
@@ -91,7 +98,7 @@ int main()
     return 0;
 }
 
-
+//-----------------------------------------------------------------------------------------------
 
 void minHeapify(vector<int> &arr, int i, int n) {
     int smallest = i;
